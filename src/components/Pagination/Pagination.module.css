@@ -27,6 +27,8 @@
     font-size: 0.9rem;
     min-width: 38px; 
     text-align: center;
+    font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+    font-weight: 600;
   }
   
   .pageButton:hover:not(:disabled) {
