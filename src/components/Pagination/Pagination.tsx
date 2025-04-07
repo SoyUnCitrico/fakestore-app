@@ -43,7 +43,7 @@ const Pagination: React.FC<PaginationControlsProps> = ({
         title="Pagina Anterior"
       >
         <FaArrowLeft/>
-        {'Anterior'}
+        {/* {'Ant'} */}
       </button>
 
       <ul className={styles.pageList}>
@@ -68,7 +68,7 @@ const Pagination: React.FC<PaginationControlsProps> = ({
         aria-label="Pagina Siguiente"
         title="Pagina Siguiente"
       >
-        {'Siguiente'}
+        {/* {'Sig'} */}
         <FaArrowRight/>
       </button>
     </nav>

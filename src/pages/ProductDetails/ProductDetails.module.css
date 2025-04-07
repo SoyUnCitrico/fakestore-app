@@ -125,8 +125,9 @@
 }  
 
 .errorContainer {
-    text-align: center;
+    /* text-align: center; */
     padding: 2rem;
+    width: 100%;
 }
 
 .errorMessage {

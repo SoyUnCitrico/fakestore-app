@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import styles from './NotFound.module.css';
 
 // Componente para error 404
 const NotFound: React.FC = () => (
-    <div style={{ textAlign: 'center', padding: '2rem', height: '77vh' }}>
+    <div className={styles.notfoundContainer}>
       <h2>404 - Página No Encontrada</h2>
       <br/>
       <p>Lo sentimos, la página que estas buscando no existe.</p>
-      <Link to="/">Regresa al Inicio</Link>
+      <Link to="/"><p className={styles.link}>Regresa al Inicio</p></Link>
     </div>
   );
 

@@ -47,7 +47,7 @@ const ProductDetails: React.FC = () => {
       alert(`¡${product.title} agregado al carrito!`);
     }
   };
-
+  console.log(error ?? "hola")
   if (loading) return <LoadingSpinner />;
   if (error) return ( <div className={styles.errorContainer}><NotFound></NotFound></div> );
   if (!product) return ( <div className={styles.errorContainer}><NotFound></NotFound></div> );

@@ -1,0 +1,30 @@
+.notfoundContainer {
+    text-align: center; 
+    padding: 3rem; 
+    height: 77vh; 
+    background-color: #EBF3FE; 
+    color: #333;
+    
+    h2 {
+        font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+    }
+    p {
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+        font-weight: 400;
+    }
+}
+
+
+.link {
+    margin: 3rem auto;
+    color:#2F80ED;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.link:hover {
+    color: #1366D6;
+    font-weight: 600;
+    cursor: pointer;
+}
