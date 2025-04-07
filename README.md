@@ -27,10 +27,3 @@ El proyecto incluye:
 6. Estilizado básico con CSS.
 7. Se implemeta routing con React Router.
 8. Manejo del estado del carrito con Context API.
-
-
-### Mejoras pendientes
-
-* Cambiar fuentes en local para modo offline.
-* Uso de 'localStorage' para persistencia de datos al recargar la página.
-* Cambio de CSS puro a Styled-Components para manejo de variables de estilo.
