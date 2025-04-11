@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 import { Product } from '../../types';
-import { useCart } from '../../context/CartContex'
+import { useCart } from '../../context/useCart'
 import { FaCartPlus } from "react-icons/fa";
 import { translatedCat } from '../../types';
 interface ProductCardProps {

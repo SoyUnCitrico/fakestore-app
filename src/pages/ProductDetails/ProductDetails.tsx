@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProductById } from '../../services/api';
 import LoadingSpinner from '../../components/Loader/Spinner';
 import { Product } from '../../types';
-import { useCart } from '../../context/CartContex'; 
+import { useCart } from '../../context/useCart'; 
 import styles from './ProductDetails.module.css';
 import { translatedCat } from '../../types';
 import { FaArrowLeft } from 'react-icons/fa';

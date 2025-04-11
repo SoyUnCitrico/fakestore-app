@@ -3,12 +3,13 @@ import styles from './Hero.module.css';
 import Logotipo from '../../assets/images/Logo.png'
 import Mujer from '../../assets/images/Mujer.png'
 import Productos from '../../assets/images/Productos.png'
+import { forwardRef } from 'react';
 
 interface HeroProps {
-    myRef: any
+    myRef: React.Ref<HTMLDivElement | null>
   }
   
-const Hero : React.FC<HeroProps> = ({myRef}) => {
+const Hero = forwardRef<HTMLDivElement | null, HeroProps>(({myRef}) => {
     return(<>
         <main className={styles.heroContainer}>
             <div className={styles.heroGrid}>
@@ -20,7 +21,9 @@ const Hero : React.FC<HeroProps> = ({myRef}) => {
                     <h3 className={styles.heroInfoSub}>No vas a creer todas nuestras ofertas</h3>
                     <p className={styles.heroInfoText}>100% real, no fake</p>
                     <button
-                        onClick={()=>{myRef.current.scrollIntoView( { behavior: 'smooth' } );}} 
+                        onClick={ () => {
+                            (myRef as React.RefObject<HTMLDivElement>)?.current.scrollIntoView( { behavior: 'smooth' } );
+                        }} 
                         className={styles.heroInfoButton}
                     >COMPRA AHORA</button>
                 </div>
@@ -31,6 +34,6 @@ const Hero : React.FC<HeroProps> = ({myRef}) => {
             </div>
         </main>
     </>)
-}
+})
 
 export default Hero;

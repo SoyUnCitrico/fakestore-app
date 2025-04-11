@@ -20,14 +20,24 @@ export interface Rating {
 
   export interface ItemList {
       product: { 
-        id: React.Key | number | null | undefined; 
+        id: number | null | undefined; 
         image: string | undefined; 
         title: string ; 
         price: number; 
       }; 
-      quantity: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined;
+      quantity: string | number | null | undefined;
   }
 
+  export interface CartContextType {
+    cartItems: CartItem[];
+    addToCart: (product: Product) => void;
+    removeFromCart: (productId: number) => void;
+    getCartItemCount: () => number;
+    getCartTotal: () => number;
+    isCartOpen: boolean;
+    toggleCart: () => void; 
+  }
+  
   // DIccionario de categorias para manejo de traduccion
   export const translatedCat : Record<string, string> = {
     "all": "Todos",

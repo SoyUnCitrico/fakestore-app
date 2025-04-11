@@ -9,7 +9,7 @@ import styles from './ProductGrid.module.css';
 interface ProductGridProps {
   selectedCategory: string;
   itemsPerPage?: number;
-  myRef?: any
+  myRef?: React.Ref<HTMLDivElement | null>
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({
@@ -58,9 +58,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-      //@ts-ignore
-      myRef.current.scrollIntoView({ behavior: 'smooth' });  
+      setCurrentPage(page);      
+      (myRef as React.RefObject<HTMLDivElement>)?.current.scrollIntoView({ behavior: 'smooth' });  
     }
   };
 

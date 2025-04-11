@@ -1,23 +1,13 @@
-import React, { createContext, useState, useContext, ReactNode, useMemo } from 'react';
-import { Product, CartItem } from '../types';
+import React, { createContext, useState, ReactNode, useMemo, useCallback } from 'react';
+import { CartContextType, CartItem, Product } from '../types';
 
-interface CartContextType {
-  cartItems: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: any | React.Key | number | string) => void;
-  getCartItemCount: () => number;
-  getCartTotal: () => number;
-  isCartOpen: boolean;
-  toggleCart: () => void; 
-}
-
-export const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
 interface CartProviderProps {
-  children: ReactNode | any; 
+  children: ReactNode | undefined | null; 
 }
 
-export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false); 
 
@@ -46,13 +36,13 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     );
   };
 
-  const getCartItemCount = (): number => {
+  const getCartItemCount = useCallback((): number => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
+  }, [cartItems]);
 
-  const getCartTotal = (): number => {
+  const getCartTotal = useCallback((): number => {
     return cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
-  };
+  }, [cartItems]);
 
   const toggleCart = () => {
       setIsCartOpen(prev => !prev);
@@ -66,7 +56,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     getCartTotal,
     isCartOpen,
     toggleCart,
-  }), [cartItems, isCartOpen]); 
+  }), [cartItems, isCartOpen, getCartItemCount, getCartTotal]); 
 
   return (
     <CartContext.Provider value={contextValue}>
@@ -76,10 +66,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 };
 
 
-export const useCart = (): CartContextType => {
-  const context = useContext(CartContext);
-  if (context === undefined) {
-    throw new Error('useCart debe usarse con CartProvider');
-  }
-  return context;
-};
+export  {
+  CartContext,
+  CartProvider
+}

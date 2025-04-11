@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [loadingCategories, setLoadingCategories] = useState<boolean>(true);
   const [errorCategories, setErrorCategories] = useState<string | null>(null);
-  const topRef = useRef(null);
+  const topRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const loadCategories = async () => {
