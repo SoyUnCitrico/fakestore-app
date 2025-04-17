@@ -3,13 +3,12 @@ import styles from './Hero.module.css';
 import Logotipo from '../../assets/images/Logo.png'
 import Mujer from '../../assets/images/Mujer.png'
 import Productos from '../../assets/images/Productos.png'
-import { forwardRef } from 'react';
 
 interface HeroProps {
     myRef: React.Ref<HTMLDivElement | null>
   }
   
-const Hero = forwardRef<HTMLDivElement | null, HeroProps>(({myRef}) => {
+const Hero = (({myRef} : HeroProps) => {
     return(<>
         <main className={styles.heroContainer}>
             <div className={styles.heroGrid}>
